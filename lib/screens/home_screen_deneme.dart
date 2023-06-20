@@ -104,12 +104,10 @@ class _HomeScreenDenemeState extends State<HomeScreenDeneme> {
                     ],
                   ),
                 ),
-                //SizedBox(height: 20.h),
                 Lottie.asset(
                   "assets/lottie/logo.json",
                   height: 100.h,
                 ),
-                //SizedBox(height: 40.h),
               ],
             ),
             Column(
