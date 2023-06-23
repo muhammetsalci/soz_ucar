@@ -3,8 +3,8 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../uitils/colors.dart';
-import '../uitils/strings.dart';
+import '../utils/colors.dart';
+import '../utils/strings.dart';
 import 'feed_back_widget.dart';
 
 class DrawerWidget extends StatelessWidget {

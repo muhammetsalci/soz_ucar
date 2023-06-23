@@ -1,8 +1,9 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
-import 'package:ozlu_sozler_flutter/uitils/colors.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:ozlu_sozler_flutter/utils/colors.dart';
 
-import '../uitils/strings.dart';
+import '../utils/strings.dart';
 
 class AppNameWidget extends StatelessWidget {
   const AppNameWidget({super.key});
@@ -11,8 +12,8 @@ class AppNameWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final colorizeColors = [ColorItems.textColor, ColorItems.primaryColor];
 
-    const colorizeTextStyle = TextStyle(
-        fontSize: 33.0, fontFamily: 'Horizon', fontWeight: FontWeight.bold);
+    final colorizeTextStyle = TextStyle(
+        fontSize: 33.0.sp, fontFamily: 'Horizon', fontWeight: FontWeight.bold);
     return SizedBox(
       child: AnimatedTextKit(
         animatedTexts: [

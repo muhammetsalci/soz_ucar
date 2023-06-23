@@ -38,7 +38,7 @@ class GoogleAds {
     }
   }
 
-  void loadBannerAd({required VoidCallback adLoaded}) {
+  void loadBannerAd() {
     bannerAd = BannerAd(
       adUnitId: adUnitIdBanner,
       request: const AdRequest(),
@@ -47,7 +47,6 @@ class GoogleAds {
         onAdLoaded: (ad) {
           debugPrint('$ad loaded.');
           bannerAd = ad as BannerAd?;
-          adLoaded();
         },
         onAdFailedToLoad: (ad, err) {
           ad.dispose();

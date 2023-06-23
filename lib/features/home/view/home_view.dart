@@ -1,76 +1,39 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
+import 'package:ozlu_sozler_flutter/core/base/view/base_widget.dart';
+import 'package:ozlu_sozler_flutter/features/home/view-model/home_view_model.dart';
 import 'package:ozlu_sozler_flutter/screens/category_screen.dart';
 import 'package:ozlu_sozler_flutter/screens/random_quote_screen.dart';
+import 'package:ozlu_sozler_flutter/utils/colors.dart';
 import 'package:ozlu_sozler_flutter/widgets/app_name.widget.dart';
+import 'package:ozlu_sozler_flutter/widgets/bannerAd_widget.dart';
 import 'package:ozlu_sozler_flutter/widgets/drawer_widget.dart';
 import 'package:ozlu_sozler_flutter/widgets/home_screen_item_deneme.dart';
-import 'package:toast/toast.dart';
 
-import '../utils/colors.dart';
-import '../services/google_ads.dart';
-import '../widgets/bannerAd_widget.dart';
-
-class HomeScreenDeneme extends StatefulWidget {
-  const HomeScreenDeneme({super.key});
-
-  @override
-  State<HomeScreenDeneme> createState() => _HomeScreenDenemeState();
-}
-
-class _HomeScreenDenemeState extends State<HomeScreenDeneme> {
-  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-  final GoogleAds _googleAds = GoogleAds();
-
-/*   late BannerAd bannerAd;
-  bool isAdLoaded = false;
-  var testUnit = 'ca-app-pub-3940256099942544/6300978111';
-  var adUnit = 'ca-app-pub-4045640849423737/5516733133';
-
-  initBannerAd() {
-    bannerAd = BannerAd(
-      size: AdSize.banner,
-      adUnitId: adUnit,
-      listener: BannerAdListener(
-        onAdLoaded: (ad) {
-          if (kDebugMode) {
-            print("hata yok");
-          }
-          setState(() {
-            isAdLoaded = true;
-          });
-        },
-        onAdFailedToLoad: (ad, error) {
-          ad.dispose();
-          if (kDebugMode) {
-            print("hata mesajı: $error");
-          }
-        },
-      ),
-      request: const AdRequest(),
-    );
-    bannerAd.load();
-  } */
-
-  @override
-  void initState() {
-    super.initState();
-    _googleAds.loadIntersititalAd(showAfterLoad: false);
-    _googleAds.loadBannerAd();
-  }
+class HomeView extends StatelessWidget {
+  const HomeView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    ToastContext().init(context);
+    return BaseView<HomeViewModel>(
+      viewModel: HomeViewModel(),
+      onModelReady: (model) {
+        model.setContext(context);
+        model.init();
+      },
+      onPageBuilder: (BuildContext context, HomeViewModel value) =>
+          buildScaffoldBody(context, value),
+    );
+  }
+}
+
+  @override
+  Widget buildScaffoldBody(BuildContext context, HomeViewModel viewModel) {
     return Scaffold(
       backgroundColor: ColorItems.background,
-      key: _scaffoldKey,
-      /*  appBar: AppBar(
-        backgroundColor: ColorItems.primaryColor,
-        title: const Text(StringItems.appName),
-      ), */
-      drawer: DrawerWidget(scaffoldKey: _scaffoldKey),
+      key: viewModel.scaffoldKey,
+      drawer: DrawerWidget(scaffoldKey: viewModel.scaffoldKey),
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -89,7 +52,7 @@ class _HomeScreenDenemeState extends State<HomeScreenDeneme> {
                           color: ColorItems.primaryColor,
                           icon: const Icon(Icons.menu),
                           onPressed: () {
-                            _scaffoldKey.currentState?.openDrawer();
+                            viewModel.scaffoldKey.currentState?.openDrawer();
                           },
                           tooltip: MaterialLocalizations.of(context)
                               .openAppDrawerTooltip,
@@ -153,8 +116,8 @@ class _HomeScreenDenemeState extends State<HomeScreenDeneme> {
         ),
       ),
       bottomNavigationBar: BannerAdWidget(
-        googleAds: _googleAds,
+        googleAds: viewModel.googleAds,
       ),
     );
   }
-}
+

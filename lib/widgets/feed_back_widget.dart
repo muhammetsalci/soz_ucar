@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:ozlu_sozler_flutter/uitils/colors.dart';
+import 'package:ozlu_sozler_flutter/utils/colors.dart';
 
 class FeedbackForm extends StatefulWidget {
   const FeedbackForm({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _FeedbackFormState createState() => _FeedbackFormState();
 }
 
@@ -98,7 +99,9 @@ class _FeedbackFormState extends State<FeedbackForm> {
                 } catch (e) {
                   message1 = 'Geri Bildiriminiz Gönderilirken Bir Hata Oluştu.';
                 }
+                // ignore: use_build_context_synchronously
                 Navigator.of(context).pop();
+                // ignore: use_build_context_synchronously
                 ScaffoldMessenger.of(context)
                     .showSnackBar(SnackBar(content: Text(message1)));
               }

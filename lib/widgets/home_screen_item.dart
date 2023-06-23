@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
-import 'package:ozlu_sozler_flutter/uitils/colors.dart';
+import 'package:ozlu_sozler_flutter/utils/colors.dart';
 import 'package:toast/toast.dart';
 
 class HomeScreenItem extends StatelessWidget {
-  HomeScreenItem(
+  const HomeScreenItem(
       {Key? key,
       this.page,
       //required this.onTap,
@@ -19,9 +19,10 @@ class HomeScreenItem extends StatelessWidget {
   final String lottie;
   final String text;
   //final IconData icon;
+  // ignore: prefer_typing_uninitialized_variables
   final page;
-  Color? textColor;
-  Color? color;
+  final Color? textColor;
+  final Color? color;
   @override
   Widget build(BuildContext context) {
     return Padding(

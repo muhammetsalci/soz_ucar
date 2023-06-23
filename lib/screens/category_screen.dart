@@ -6,10 +6,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:ozlu_sozler_flutter/screens/quotes_screen.dart';
 import 'package:ozlu_sozler_flutter/services/service.dart';
-import 'package:ozlu_sozler_flutter/uitils/strings.dart';
+import 'package:ozlu_sozler_flutter/utils/strings.dart';
 import 'package:ozlu_sozler_flutter/widgets/bannerAd_widget.dart';
 
-import '../uitils/colors.dart';
+import '../utils/colors.dart';
 import '../model/model.dart';
 import '../services/google_ads.dart';
 
@@ -25,7 +25,6 @@ class _CategoryScreenState extends State<CategoryScreen> {
   late final PostService _postService;
   List numberOfCategories = [];
   String selectedCategory = '';
-  int _selectedIndex = -1;
 
   bool isLoading = false;
 
@@ -75,9 +74,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
     _postService = PostService();
     fetchPostItemsAdvance();
     _googleAds.loadIntersititalAd();
-    _googleAds.loadBannerAd(adLoaded: () {
-      setState(() {});
-    });
+    _googleAds.loadBannerAd();
   }
 
   fetchPostItemsAdvance() async {
@@ -208,7 +205,6 @@ class _CategoryScreenState extends State<CategoryScreen> {
         );
         setState(() {
           selectedCategory = category;
-          _selectedIndex = index;
         });
       },
       child: Column(

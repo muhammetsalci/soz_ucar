@@ -9,7 +9,7 @@ import 'package:ozlu_sozler_flutter/widgets/app_name.widget.dart';
 import 'package:ozlu_sozler_flutter/widgets/drawer_widget.dart';
 import 'package:toast/toast.dart';
 
-import '../uitils/colors.dart';
+import '../utils/colors.dart';
 import '../services/google_ads.dart';
 import '../widgets/bannerAd_widget.dart';
 import '../widgets/home_screen_item.dart';
@@ -59,9 +59,7 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     super.initState();
     _googleAds.loadIntersititalAd(showAfterLoad: false);
-    _googleAds.loadBannerAd(adLoaded: () {
-      setState(() {});
-    });
+    _googleAds.loadBannerAd();
   }
 
   @override
@@ -116,21 +114,21 @@ class _HomeScreenState extends State<HomeScreen> {
                     //animate: false,
                   ),
                   SizedBox(height: 20.h),
-                  HomeScreenItem(
-                    page: const RandomQuoteScreen(),
+                  const HomeScreenItem(
+                    page: RandomQuoteScreen(),
                     text: 'Rastgele Söz',
                     //icon: Icons.shuffle,
                     lottie:
                         'https://lottie.host/a50a4bb4-0011-4c78-bc45-ea3bc98aaa9c/L0T3dWFuI4.json',
                   ),
-                  HomeScreenItem(
-                    page: const CategoryScreen(),
+                  const HomeScreenItem(
+                    page: CategoryScreen(),
                     text: 'Kategoriler',
                     //icon: Icons.category,
                     lottie:
                         'https://lottie.host/837db5a1-beac-418d-9c09-c2104011a622/ajKa1LbLhW.json',
                   ),
-                  HomeScreenItem(
+                  const HomeScreenItem(
                     text: 'Favoriler',
                     //icon: Icons.favorite,
                     lottie:

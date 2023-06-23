@@ -2,8 +2,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:ozlu_sozler_flutter/features/home/view/home_view.dart';
 import 'package:ozlu_sozler_flutter/firebase_options.dart';
-import 'package:ozlu_sozler_flutter/screens/home_screen_deneme.dart';
 import 'package:provider/provider.dart';
 
 import 'provider.dart';
@@ -33,10 +33,12 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    ScreenUtil.init(
-      context,
-      designSize: const Size(411, 800),
-    );
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      ScreenUtil.init(
+        context,
+        designSize: const Size(411, 800),
+      );
+    });
   }
 
   @override
@@ -52,7 +54,7 @@ class _MyAppState extends State<MyApp> {
               debugShowCheckedModeBanner: false,
               //theme: ThemeData.dark(),
               title: 'Material App',
-              home: HomeScreenDeneme(),
+              home: HomeView(),
             );
           }),
     );

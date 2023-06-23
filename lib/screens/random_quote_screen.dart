@@ -7,11 +7,11 @@ import 'package:ozlu_sozler_flutter/model/model.dart';
 import 'package:ozlu_sozler_flutter/widgets/random_list_view_widget.dart';
 import 'package:provider/provider.dart';
 
-import '../uitils/colors.dart';
+import '../utils/colors.dart';
 import '../provider.dart';
 import '../services/google_ads.dart';
 import '../services/service.dart';
-import '../uitils/strings.dart';
+import '../utils/strings.dart';
 
 class RandomQuoteScreen extends StatefulWidget {
   const RandomQuoteScreen({super.key});
@@ -26,7 +26,7 @@ class _RandomQuoteScreenState extends State<RandomQuoteScreen> {
 
   bool isLoading = false;
 
-  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  //final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   late BannerAd bannerAd;
   bool isAdLoaded = false;
@@ -73,9 +73,7 @@ class _RandomQuoteScreenState extends State<RandomQuoteScreen> {
     _postService = PostService();
     fetchPostItemsAdvance();
     _googleAds.loadIntersititalAd();
-    _googleAds.loadBannerAd(adLoaded: () {
-      setState(() {});
-    });
+    _googleAds.loadBannerAd();
   }
 
   fetchPostItemsAdvance() async {

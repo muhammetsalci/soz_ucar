@@ -4,15 +4,15 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ozlu_sozler_flutter/services/google_ads.dart';
 import 'package:ozlu_sozler_flutter/widgets/main_list_view_widget.dart';
 
-import '../uitils/colors.dart';
+import '../utils/colors.dart';
 import '../model/model.dart';
-import '../uitils/strings.dart';
+import '../utils/strings.dart';
 import '../widgets/bannerAd_widget.dart';
 
 class QuotesScreen extends StatefulWidget {
-  List<PostModel>? items;
-  String selectedCategory;
-  QuotesScreen({
+  final List<PostModel>? items;
+  final String selectedCategory;
+  const QuotesScreen({
     Key? key,
     required this.items,
     required this.selectedCategory,
@@ -30,9 +30,7 @@ class _QuotesScreenState extends State<QuotesScreen> {
   void initState() {
     super.initState();
     _googleAds.loadIntersititalAd();
-    _googleAds.loadBannerAd(adLoaded: () {
-      setState(() {});
-    });
+    _googleAds.loadBannerAd();
   }
 
   @override

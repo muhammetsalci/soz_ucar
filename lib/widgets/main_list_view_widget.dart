@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import 'package:ozlu_sozler_flutter/uitils/colors.dart';
+import 'package:ozlu_sozler_flutter/utils/colors.dart';
 import 'package:ozlu_sozler_flutter/model/model.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class MainListView extends StatelessWidget {
-  List<PostModel>? items;
-  String selectedCategory;
-  MainListView({
+  final List<PostModel>? items;
+  final String selectedCategory;
+  const MainListView({
     Key? key,
     required this.items,
     required this.selectedCategory,
