@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
-import 'package:ozlu_sozler_flutter/features/home/widgets/home_screen_item_deneme.dart';
+import 'package:ozlu_sozler_flutter/features/home/widgets/home_screen_item.dart';
 import 'package:ozlu_sozler_flutter/screens/category_screen.dart';
 import 'package:ozlu_sozler_flutter/screens/random_quote_screen.dart';
 import 'package:ozlu_sozler_flutter/widgets/app_name.widget.dart';

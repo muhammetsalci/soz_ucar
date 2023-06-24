@@ -2,14 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 import 'package:ozlu_sozler_flutter/core/base/view/base_widget.dart';
+import 'package:ozlu_sozler_flutter/features/category/view/category_view.dart';
 import 'package:ozlu_sozler_flutter/features/home/view-model/home_view_model.dart';
-import 'package:ozlu_sozler_flutter/features/home/widgets/home_screen_item_deneme.dart';
+import 'package:ozlu_sozler_flutter/features/home/widgets/home_screen_item.dart';
 import 'package:ozlu_sozler_flutter/features/random_quote/view/random_quote_view.dart';
-import 'package:ozlu_sozler_flutter/screens/category_screen.dart';
 import 'package:ozlu_sozler_flutter/utils/colors.dart';
 import 'package:ozlu_sozler_flutter/widgets/app_name.widget.dart';
 import 'package:ozlu_sozler_flutter/widgets/bannerAd_widget.dart';
 import 'package:ozlu_sozler_flutter/widgets/drawer_widget.dart';
+import 'package:toast/toast.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -29,7 +30,8 @@ class HomeView extends StatelessWidget {
 }
 
   @override
-  Widget buildScaffoldBody(BuildContext context, HomeViewModel viewModel) {
+  buildScaffoldBody(BuildContext context, HomeViewModel viewModel) {
+    ToastContext().init(context);
     return Scaffold(
       backgroundColor: ColorItems.background,
       key: viewModel.scaffoldKey,
@@ -70,7 +72,7 @@ class HomeView extends StatelessWidget {
                     position: 'topLeft',
                   ),
                   HomeScreenItem(
-                    page: CategoryScreen(),
+                    page: CategoryView(),
                     text: 'Kategoriler',
                     lottieAsset: 'category.json',
                     position: 'topRight',

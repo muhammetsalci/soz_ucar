@@ -7,9 +7,9 @@ import 'package:ozlu_sozler_flutter/core/base/view/base_widget.dart';
 import 'package:ozlu_sozler_flutter/features/random_quote/view-model/random_quote_view_model.dart';
 import 'package:ozlu_sozler_flutter/provider.dart';
 import 'package:ozlu_sozler_flutter/utils/colors.dart';
-import 'package:ozlu_sozler_flutter/utils/strings.dart';
 import 'package:ozlu_sozler_flutter/widgets/bannerAd_widget.dart';
 import 'package:ozlu_sozler_flutter/features/random_quote/widgets/random_list_view_widget.dart';
+import 'package:ozlu_sozler_flutter/widgets/custom_app_bar.dart';
 import 'package:provider/provider.dart';
 
 class RandomQuoteView extends StatelessWidget {
@@ -28,15 +28,12 @@ class RandomQuoteView extends StatelessWidget {
     );
   }
 
-  Widget buildScaffoldBody(
+  buildScaffoldBody(
       BuildContext context, RandomQuoteViewModel viewModel) {
     return Observer(builder: (_) {
       return Scaffold(
         backgroundColor: ColorItems.background,
-        appBar: AppBar(
-          backgroundColor: ColorItems.primaryColor,
-          title: Text(StringItems.appName),
-        ),
+        appBar: const CustomAppBar(),
         body: viewModel.isLoading
             ? const Center(child: CircularProgressIndicator())
             : SafeArea(

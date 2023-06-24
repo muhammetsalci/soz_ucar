@@ -1,16 +1,13 @@
 import 'dart:developer';
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:ozlu_sozler_flutter/features/category/model/category_model.dart';
+import 'package:ozlu_sozler_flutter/features/category/service/category_service.dart';
 import 'package:ozlu_sozler_flutter/screens/quotes_screen.dart';
-import 'package:ozlu_sozler_flutter/services/service.dart';
 import 'package:ozlu_sozler_flutter/utils/strings.dart';
 import 'package:ozlu_sozler_flutter/widgets/bannerAd_widget.dart';
-
 import '../utils/colors.dart';
-import '../model/model.dart';
 import '../services/google_ads.dart';
 
 class CategoryScreen extends StatefulWidget {
@@ -21,8 +18,8 @@ class CategoryScreen extends StatefulWidget {
 }
 
 class _CategoryScreenState extends State<CategoryScreen> {
-  List<PostModel>? _items;
-  late final PostService _postService;
+  List<CategoryModel>? _items;
+  late final CategoryService _postService;
   List numberOfCategories = [];
   String selectedCategory = '';
 
@@ -32,35 +29,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
   final ScrollController _scrollController = ScrollController();
   final GoogleAds _googleAds = GoogleAds();
 
-  late BannerAd bannerAd;
   bool isAdLoaded = false;
-  var testUnit = 'ca-app-pub-3940256099942544/6300978111';
-  var adUnit = 'ca-app-pub-4045640849423737/5516733133';
-
-  initBannerAd() {
-    bannerAd = BannerAd(
-      size: AdSize.banner,
-      adUnitId: adUnit,
-      listener: BannerAdListener(
-        onAdLoaded: (ad) {
-          if (kDebugMode) {
-            print("hata yok");
-          }
-          setState(() {
-            isAdLoaded = true;
-          });
-        },
-        onAdFailedToLoad: (ad, error) {
-          ad.dispose();
-          if (kDebugMode) {
-            print("hata mesajı: $error");
-          }
-        },
-      ),
-      request: const AdRequest(),
-    );
-    bannerAd.load();
-  }
 
   void changeLoading() {
     setState(() {
@@ -71,7 +40,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
   @override
   void initState() {
     super.initState();
-    _postService = PostService();
+    _postService = CategoryService();
     fetchPostItemsAdvance();
     _googleAds.loadIntersititalAd();
     _googleAds.loadBannerAd();
@@ -178,7 +147,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
     );
   }
 
-  ElevatedButton categoryButton(
+  Widget categoryButton(
       BuildContext context, String category, int index) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(backgroundColor: ColorItems.background),
