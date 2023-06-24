@@ -3,7 +3,7 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ozlu_sozler_flutter/core/base/view/base_widget.dart';
 import 'package:ozlu_sozler_flutter/features/category/view-model/category_view_model.dart';
-import 'package:ozlu_sozler_flutter/screens/quotes_screen.dart';
+import 'package:ozlu_sozler_flutter/features/quotes/view/quotes_view.dart';
 import 'package:ozlu_sozler_flutter/utils/colors.dart';
 import 'package:ozlu_sozler_flutter/widgets/bannerAd_widget.dart';
 import 'package:ozlu_sozler_flutter/widgets/custom_app_bar.dart';
@@ -89,7 +89,7 @@ class CategoryView extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-              builder: (context) => QuotesScreen(
+              builder: (context) => QuotesView(
                     items: viewModel.items,
                     selectedCategory: category,
                   )),
