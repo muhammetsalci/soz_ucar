@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:ozlu_sozler_flutter/features/random_quote/model/random_quote_model.dart';
 
 import 'package:ozlu_sozler_flutter/utils/colors.dart';
-import 'package:ozlu_sozler_flutter/model/model.dart';
 
 class RandomListView extends StatelessWidget {
-  final List<PostModel>? items;
+  final List<RandomQuoteReSponseModel>? items;
   final int randomNumber;
   const RandomListView({
     Key? key,

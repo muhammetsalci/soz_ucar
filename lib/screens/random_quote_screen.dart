@@ -2,15 +2,15 @@ import 'dart:math';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
-import 'package:ozlu_sozler_flutter/model/model.dart';
-import 'package:ozlu_sozler_flutter/widgets/random_list_view_widget.dart';
+import 'package:ozlu_sozler_flutter/features/random_quote/model/random_quote_model.dart';
+import 'package:ozlu_sozler_flutter/features/random_quote/service/random_quote_service.dart';
+import 'package:ozlu_sozler_flutter/widgets/bannerAd_widget.dart';
+import 'package:ozlu_sozler_flutter/features/random_quote/widgets/random_list_view_widget.dart';
 import 'package:provider/provider.dart';
 
 import '../utils/colors.dart';
 import '../provider.dart';
 import '../services/google_ads.dart';
-import '../services/service.dart';
 import '../utils/strings.dart';
 
 class RandomQuoteScreen extends StatefulWidget {
@@ -21,45 +21,13 @@ class RandomQuoteScreen extends StatefulWidget {
 }
 
 class _RandomQuoteScreenState extends State<RandomQuoteScreen> {
-  List<PostModel>? _items;
-  late final PostService _postService;
+  List<RandomQuoteReSponseModel>? _items;
+  late final RandomQuoteService _postService;
 
   bool isLoading = false;
-
-  //final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-
-  late BannerAd bannerAd;
-  bool isAdLoaded = false;
-  var testUnit = 'ca-app-pub-3940256099942544/6300978111';
-  var adUnit = 'ca-app-pub-4045640849423737/5516733133';
   final GoogleAds _googleAds = GoogleAds();
 
   late int number;
-
-  initBannerAd() {
-    bannerAd = BannerAd(
-      size: AdSize.banner,
-      adUnitId: adUnit,
-      listener: BannerAdListener(
-        onAdLoaded: (ad) {
-          if (kDebugMode) {
-            print("hata yok");
-          }
-          setState(() {
-            isAdLoaded = true;
-          });
-        },
-        onAdFailedToLoad: (ad, error) {
-          ad.dispose();
-          if (kDebugMode) {
-            print("hata mesajı: $error");
-          }
-        },
-      ),
-      request: const AdRequest(),
-    );
-    bannerAd.load();
-  }
 
   void changeLoading() {
     setState(() {
@@ -70,7 +38,7 @@ class _RandomQuoteScreenState extends State<RandomQuoteScreen> {
   @override
   void initState() {
     super.initState();
-    _postService = PostService();
+    _postService = RandomQuoteService();
     fetchPostItemsAdvance();
     _googleAds.loadIntersititalAd();
     _googleAds.loadBannerAd();
@@ -111,20 +79,15 @@ class _RandomQuoteScreenState extends State<RandomQuoteScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
     return Scaffold(
-      key: scaffoldKey,
       backgroundColor: ColorItems.background,
       appBar: AppBar(
         backgroundColor: ColorItems.primaryColor,
         title: Text(StringItems.appName),
       ),
-      /* drawer: DrawerWidget(
-        scaffoldKey: scaffoldKey,
-      ), */
       body: isLoading
           ? const Center(child: CircularProgressIndicator())
-          : Center(
+          : SafeArea(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -132,15 +95,6 @@ class _RandomQuoteScreenState extends State<RandomQuoteScreen> {
                     items: _items,
                     randomNumber: number,
                   ),
-                  /* Center(
-                    child:
-                        Consumer<MyProvider>(builder: (context, myProvider, _) {
-                      reklam = myProvider.myVariable;
-                      return Text(
-                        'My variable value is ${myProvider.myVariable}',
-                      );
-                    }),
-                  ), */
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
                         backgroundColor: ColorItems.primaryColor),
@@ -155,7 +109,8 @@ class _RandomQuoteScreenState extends State<RandomQuoteScreen> {
                               5 ==
                           0) {
                         if (kDebugMode) {
-                          print(Provider.of<MyProvider>(context, listen: false)
+                          print(Provider.of<MyProvider>(context,
+                                  listen: false)
                               .myVariable);
                         }
                         //_googleAds.showInterstitalAd();
@@ -172,7 +127,8 @@ class _RandomQuoteScreenState extends State<RandomQuoteScreen> {
                         ),
                         Text(
                           'Rastgele Söz',
-                          style: TextStyle(color: ColorItems.secondaryColor),
+                          style:
+                              TextStyle(color: ColorItems.secondaryColor),
                         ),
                       ],
                     ),
@@ -180,6 +136,9 @@ class _RandomQuoteScreenState extends State<RandomQuoteScreen> {
                 ],
               ),
             ),
+      bottomNavigationBar: BannerAdWidget(
+        googleAds: _googleAds,
+      ),
       /* bottomNavigationBar: _googleAds.bannerAd != null
       ?SizedBox(
         width: _googleAds.bannerAd!.size.width.toDouble(),

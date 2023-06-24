@@ -6,8 +6,8 @@ import 'package:toast/toast.dart';
 
 import 'feed_back_widget.dart';
 
-class HomeScreenItemDeneme extends StatelessWidget {
-  const HomeScreenItemDeneme(
+class HomeScreenItem extends StatelessWidget {
+  const HomeScreenItem(
       {Key? key,
       required this.position,
       this.page,

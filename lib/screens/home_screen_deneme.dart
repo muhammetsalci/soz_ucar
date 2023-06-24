@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
+import 'package:ozlu_sozler_flutter/features/home/widgets/home_screen_item_deneme.dart';
 import 'package:ozlu_sozler_flutter/screens/category_screen.dart';
 import 'package:ozlu_sozler_flutter/screens/random_quote_screen.dart';
 import 'package:ozlu_sozler_flutter/widgets/app_name.widget.dart';
 import 'package:ozlu_sozler_flutter/widgets/drawer_widget.dart';
-import 'package:ozlu_sozler_flutter/widgets/home_screen_item_deneme.dart';
 import 'package:toast/toast.dart';
 
 import '../utils/colors.dart';
@@ -111,13 +111,13 @@ class _HomeScreenDenemeState extends State<HomeScreenDeneme> {
                 const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    HomeScreenItemDeneme(
+                    HomeScreenItem(
                       page: RandomQuoteScreen(),
                       text: 'Rastgele Söz',
                       lottieAsset: 'random.json',
                       position: 'topLeft',
                     ),
-                    HomeScreenItemDeneme(
+                    HomeScreenItem(
                       page: CategoryScreen(),
                       text: 'Kategoriler',
                       lottieAsset: 'category.json',
@@ -128,12 +128,12 @@ class _HomeScreenDenemeState extends State<HomeScreenDeneme> {
                 const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    HomeScreenItemDeneme(
+                    HomeScreenItem(
                       text: 'Favoriler',
                       lottieAsset: 'fav.json',
                       position: 'bottomLeft',
                     ),
-                    HomeScreenItemDeneme(
+                    HomeScreenItem(
                       text: 'Geri Bildirim',
                       lottieURL:
                           'https://assets7.lottiefiles.com/packages/lf20_6PnLAF.json',
