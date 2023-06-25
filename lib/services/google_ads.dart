@@ -8,11 +8,11 @@ class GoogleAds {
   BannerAd? bannerAd;
 
   final adUnitIdIntersitital = Platform.isAndroid
-      ? 'ca-app-pub-4045640849423737/8834516256'
+      ? 'ca-app-pub-4045640849423737/6606919457'
       : 'ca-app-pub-4045640849423737/1934614724';
 
   final adUnitIdBanner = Platform.isAndroid
-      ? 'ca-app-pub-4045640849423737/5516733133'
+      ? 'ca-app-pub-4045640849423737/9616226171'
       : 'ca-app-pub-4045640849423737/4036936402';
 
   void loadIntersititalAd({bool showAfterLoad = false}) {
