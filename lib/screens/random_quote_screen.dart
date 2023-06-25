@@ -1,4 +1,4 @@
-import 'dart:math';
+/* import 'dart:math';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -148,3 +148,4 @@ class _RandomQuoteScreenState extends State<RandomQuoteScreen> {
     );
   }
 }
+ */

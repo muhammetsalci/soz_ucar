@@ -2,10 +2,9 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../utils/colors.dart';
-import '../utils/strings.dart';
-import '../features/home/widgets/feed_back_widget.dart';
+import 'package:ozlu_sozler_flutter/widgets/app_name.widget.dart';
+import '../../../utils/colors.dart';
+import 'feed_back_widget.dart';
 
 class DrawerWidget extends StatelessWidget {
   final GlobalKey<ScaffoldState> scaffoldKey;
@@ -13,7 +12,6 @@ class DrawerWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
     return Drawer(
       child: ListView(
         padding: EdgeInsets.zero,
@@ -22,29 +20,7 @@ class DrawerWidget extends StatelessWidget {
               decoration: BoxDecoration(
                 color: ColorItems.primaryColor,
               ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: CircleAvatar(
-                      backgroundImage: const AssetImage("assets/logo6.png"),
-                      backgroundColor: ColorItems.secondaryColor,
-                      radius: 50.0,
-                    ),
-                  ),
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: Text(
-                      StringItems.appName,
-                      style: TextStyle(
-                        color: ColorItems.secondaryColor,
-                        fontSize: 20.sp,
-                      ),
-                    ),
-                  )
-                ],
-              )),
+              child: Center(child: AppNameWidget(customColor: ColorItems.background,))),
           Card(
             child: ListTile(
               iconColor: ColorItems.primaryColor,
@@ -95,12 +71,12 @@ class DrawerWidget extends StatelessWidget {
         context: context,
         builder: (context) {
           return AlertDialog(
-            title: ListTile(
-              leading: const CircleAvatar(
+            title: const ListTile(
+              leading: CircleAvatar(
                 backgroundImage: AssetImage("assets/logo.png"),
                 backgroundColor: Colors.transparent,
               ),
-              title: Text(StringItems.appName),
+              //title: Text(StringItems.appName),
             ),
             content: const Text(
               'Çıkış yapmak istediğinize emin misiniz?',

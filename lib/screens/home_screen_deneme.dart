@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+/* import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 import 'package:ozlu_sozler_flutter/features/home/widgets/home_screen_item.dart';
@@ -6,7 +6,6 @@ import 'package:ozlu_sozler_flutter/screens/category_screen.dart';
 import 'package:ozlu_sozler_flutter/screens/random_quote_screen.dart';
 import 'package:ozlu_sozler_flutter/widgets/app_name.widget.dart';
 import 'package:ozlu_sozler_flutter/widgets/drawer_widget.dart';
-import 'package:toast/toast.dart';
 
 import '../utils/colors.dart';
 import '../services/google_ads.dart';
@@ -62,7 +61,6 @@ class _HomeScreenDenemeState extends State<HomeScreenDeneme> {
 
   @override
   Widget build(BuildContext context) {
-    ToastContext().init(context);
     return Scaffold(
       backgroundColor: ColorItems.background,
       key: _scaffoldKey,
@@ -95,7 +93,7 @@ class _HomeScreenDenemeState extends State<HomeScreenDeneme> {
                               .openAppDrawerTooltip,
                         ),
                       ),
-                      const AppNameWidget(),
+                      AppNameWidget(),
                       TextButton(onPressed: () {}, child: const Text(''))
                     ],
                   ),
@@ -158,3 +156,4 @@ class _HomeScreenDenemeState extends State<HomeScreenDeneme> {
     );
   }
 }
+ */

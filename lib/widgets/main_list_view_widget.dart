@@ -5,7 +5,6 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:ozlu_sozler_flutter/features/category/model/category_model.dart';
 
 import 'package:ozlu_sozler_flutter/utils/colors.dart';
-import 'package:toast/toast.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class MainListView extends StatelessWidget {
@@ -44,81 +43,13 @@ class MainListView extends StatelessWidget {
                 color: ColorItems.secondaryColor,
                 child: Padding(
                   padding: EdgeInsets.symmetric(vertical: 8.0.h),
-                  child: /* ListTile(
-                    isThreeLine: true,
-                    /* title: Text(
-                      selectedCategory,
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: ColorItems.primaryColor),
-                    ), */
-                    leading: CircleAvatar(
-                      backgroundColor: ColorItems.primaryColor,
-                      child: /* Text(
-                        items?[index].sentenceId.toString() ?? '',
-                        style: TextStyle(color: ColorItems.secondaryColor),
-                      ), */
-                      FaIcon(
-                        FontAwesomeIcons.quoteRight,
-                        color: ColorItems.secondaryColor,
-                      ),
-                    ),
-                    subtitle: Padding(
-                      padding: EdgeInsets.symmetric(vertical: 8.0.h),
-                      child: Text(
-                        "${items?[index].sentence}\n\n${items?[index].author}",
-                        style: TextStyle(
-                            fontWeight: FontWeight.w600,
-                            color: ColorItems.textColor),
-                      ),
-                    ),
-                    trailing: Column(
-                      children: [
-                        GestureDetector(
-                          onTap: () {
-                            String? soz = items?[index].sentence.toString();
-                            url = Uri.parse(
-                                'https://twitter.com/intent/tweet?text=${soz!}');
-                            launchUrl(
-                              url,
-                              mode: LaunchMode.externalApplication,
-                            );
-                          },
-                          child: FaIcon(
-                            FontAwesomeIcons.twitter,
-                            color: ColorItems.primaryColor,
-                          ),
-                        ),
-                        SizedBox(
-                          height: 5.h,
-                        ),
-                        GestureDetector(
-                          onTap: () {},
-                          child: FaIcon(
-                            FontAwesomeIcons.whatsapp,
-                            color: ColorItems.primaryColor,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ), */
-                      IntrinsicHeight(
+                  child: IntrinsicHeight(
                     child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          /* title: Text(
-                        selectedCategory,
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: ColorItems.primaryColor),
-                      ), */
                           CircleAvatar(
                             backgroundColor: ColorItems.primaryColor,
-                            child: /* Text(
-                          items?[index].sentenceId.toString() ?? '',
-                          style: TextStyle(color: ColorItems.secondaryColor),
-                        ), */
-                                FaIcon(
+                            child: FaIcon(
                               FontAwesomeIcons.quoteRight,
                               color: ColorItems.secondaryColor,
                             ),
@@ -162,24 +93,39 @@ class MainListView extends StatelessWidget {
                                 height: 5.h,
                               ),
                               GestureDetector(
-                                onTap: () {
-                                  soz = items?[index].sentence.toString();
-                                  /* launchUrl(
-                                    whatsappUrl,
-                                    mode: LaunchMode.externalApplication,
-                                  ); */
-                                  Clipboard.setData(
-                                          ClipboardData(text: soz.toString()))
-                                      .then((value) =>
-                                          Toast.show("Panoya Kopyalandı",gravity: Toast.center,
-                                          duration: 2,
-                                          ));
-                                },
-                                child: FaIcon(
-                                  FontAwesomeIcons.copy,
-                                  color: ColorItems.primaryColor,
-                                ),
-                              ),
+                                  onTap: () {
+                                    soz = items?[index].sentence.toString();
+
+                                    Clipboard.setData(
+                                            ClipboardData(text: soz.toString()))
+                                        .then(
+                                      (value) => ScaffoldMessenger.of(context)
+                                          .showSnackBar(SnackBar(
+                                              backgroundColor:
+                                                  ColorItems.primaryColor,
+                                              content: const Row(
+                                                children: [
+                                                  Icon(
+                                                    Icons.copy,
+                                                    color: Colors.white,
+                                                  ),
+                                                  SizedBox(
+                                                    width: 5,
+                                                  ),
+                                                  Text(
+                                                    "Panoya Kopyalandı",
+                                                    style: TextStyle(
+                                                        fontWeight:
+                                                            FontWeight.bold),
+                                                  ),
+                                                ],
+                                              ))),
+                                    );
+                                  },
+                                  child: Icon(
+                                    Icons.copy,
+                                    color: ColorItems.primaryColor,
+                                  )),
                             ],
                           ),
                         ]),

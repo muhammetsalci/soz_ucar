@@ -1,3 +1,4 @@
-class StringItems {
-  static String appName = 'SÖZ KASASI';
+/* class StringItems {
+  static String appName = 'SÖZ UÇAR';
 }
+ */

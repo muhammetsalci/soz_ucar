@@ -9,7 +9,7 @@ import 'package:ozlu_sozler_flutter/provider.dart';
 import 'package:ozlu_sozler_flutter/utils/colors.dart';
 import 'package:ozlu_sozler_flutter/widgets/bannerAd_widget.dart';
 import 'package:ozlu_sozler_flutter/features/random_quote/widgets/random_list_view_widget.dart';
-import 'package:ozlu_sozler_flutter/widgets/custom_app_bar.dart';
+import 'package:ozlu_sozler_flutter/widgets/custom_appbar.dart';
 import 'package:provider/provider.dart';
 
 class RandomQuoteView extends StatelessWidget {
@@ -28,23 +28,32 @@ class RandomQuoteView extends StatelessWidget {
     );
   }
 
-  buildScaffoldBody(
-      BuildContext context, RandomQuoteViewModel viewModel) {
+  buildScaffoldBody(BuildContext context, RandomQuoteViewModel viewModel) {
     return Observer(builder: (_) {
       return Scaffold(
         backgroundColor: ColorItems.background,
-        appBar: const CustomAppBar(),
         body: viewModel.isLoading
             ? const Center(child: CircularProgressIndicator())
             : SafeArea(
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    RandomListView(
-                      items: viewModel.items,
-                      randomNumber: viewModel.number,
+                    CustomAppbar(
+                      customOnPressed: () {
+                        Navigator.pop(context);
+                      },
+                      customIcon: const Icon(Icons.arrow_back_ios_new),
                     ),
-                    buildRandomButton(context, viewModel),
+                    Column(
+                      children: [
+                        RandomListView(
+                          items: viewModel.items,
+                          randomNumber: viewModel.number,
+                        ),
+                        buildRandomButton(context, viewModel),
+                      ],
+                    ),
+                    const TextButton(onPressed: null, child: Text(''))
                   ],
                 ),
               ),
@@ -57,40 +66,32 @@ class RandomQuoteView extends StatelessWidget {
 
   buildRandomButton(BuildContext context, RandomQuoteViewModel viewModel) {
     return ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                        backgroundColor: ColorItems.primaryColor),
-                    onPressed: () {
-                      Provider.of<MyProvider>(context, listen: false)
-                          .setMyVariable();
-                      viewModel.number =
-                          Random().nextInt(viewModel.items!.length);
-                      if (Provider.of<MyProvider>(context, listen: false)
-                                  .myVariable %
-                              5 ==
-                          0) {
-                        if (kDebugMode) {
-                          print(
-                              Provider.of<MyProvider>(context, listen: false)
-                                  .myVariable);
-                        }
-                        viewModel.googleAds
-                            .loadIntersititalAd(showAfterLoad: true);
-                      }
-                    },
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Icon(
-                          Icons.refresh,
-                          color: ColorItems.secondaryColor,
-                        ),
-                        Text(
-                          'Rastgele Söz',
-                          style: TextStyle(color: ColorItems.secondaryColor),
-                        ),
-                      ],
-                    ),
-                  );
+      style: ElevatedButton.styleFrom(backgroundColor: ColorItems.primaryColor),
+      onPressed: () {
+        Provider.of<MyProvider>(context, listen: false).setMyVariable();
+        viewModel.number = Random().nextInt(viewModel.items!.length);
+        if (Provider.of<MyProvider>(context, listen: false).myVariable % 5 ==
+            0) {
+          if (kDebugMode) {
+            print(Provider.of<MyProvider>(context, listen: false).myVariable);
+          }
+          viewModel.googleAds.loadIntersititalAd(showAfterLoad: true);
+        }
+      },
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Icon(
+            Icons.refresh,
+            color: ColorItems.secondaryColor,
+          ),
+          Text(
+            'Rastgele Söz',
+            style: TextStyle(color: ColorItems.secondaryColor),
+          ),
+        ],
+      ),
+    );
   }
 }

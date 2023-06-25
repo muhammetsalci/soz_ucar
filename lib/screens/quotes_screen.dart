@@ -1,4 +1,4 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
+/* // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ozlu_sozler_flutter/features/category/model/category_model.dart';
@@ -96,3 +96,4 @@ class _QuotesScreenState extends State<QuotesScreen> {
     );
   }
 }
+ */

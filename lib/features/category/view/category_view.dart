@@ -6,7 +6,7 @@ import 'package:ozlu_sozler_flutter/features/category/view-model/category_view_m
 import 'package:ozlu_sozler_flutter/features/quotes/view/quotes_view.dart';
 import 'package:ozlu_sozler_flutter/utils/colors.dart';
 import 'package:ozlu_sozler_flutter/widgets/bannerAd_widget.dart';
-import 'package:ozlu_sozler_flutter/widgets/custom_app_bar.dart';
+import 'package:ozlu_sozler_flutter/widgets/custom_appbar.dart';
 
 class CategoryView extends StatelessWidget {
   const CategoryView({super.key});
@@ -29,10 +29,21 @@ class CategoryView extends StatelessWidget {
       return Scaffold(
         key: viewModel.scaffoldKey,
         backgroundColor: ColorItems.background,
-        appBar: const CustomAppBar(),
         body: viewModel.isLoading
             ? const Center(child: CircularProgressIndicator())
-            : categoryListView(viewModel),
+            : SafeArea(
+                child: Column(
+                  children: [
+                    CustomAppbar(
+                      customOnPressed: () {
+                        Navigator.pop(context);
+                      },
+                      customIcon: const Icon(Icons.arrow_back_ios_new),
+                    ),
+                    categoryListView(viewModel),
+                  ],
+                ),
+              ),
         bottomNavigationBar: BannerAdWidget(
           googleAds: viewModel.googleAds,
         ),
@@ -41,42 +52,44 @@ class CategoryView extends StatelessWidget {
   }
 
   categoryListView(CategoryViewModel viewModel) {
-    return Padding(
-      padding: EdgeInsets.all(8.0.w),
-      child: GridView.builder(
-        gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-          maxCrossAxisExtent: 160,
-          childAspectRatio: 3 / 2,
-          //crossAxisSpacing: 10,
-          //mainAxisSpacing: 10,
-          //mainAxisExtent: 20,
+    return Expanded(
+      child: Padding(
+        padding: EdgeInsets.all(8.0.w),
+        child: GridView.builder(
+          gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+            maxCrossAxisExtent: 160,
+            childAspectRatio: 3 / 2,
+            //crossAxisSpacing: 10,
+            //mainAxisSpacing: 10,
+            //mainAxisExtent: 20,
+          ),
+          controller: viewModel.scrollController,
+          itemCount: viewModel.numberOfCategories.length,
+          itemBuilder: (BuildContext context, int index) {
+            return Padding(
+              padding: EdgeInsets.all(5.0.w),
+              child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(10),
+                        topRight: Radius.circular(10),
+                        bottomLeft: Radius.circular(10),
+                        bottomRight: Radius.circular(10)),
+                    boxShadow: [
+                      BoxShadow(
+                        color: ColorItems.shadowColor,
+                        blurRadius: 5,
+                        offset: const Offset(0, 3),
+                      ),
+                    ],
+                  ),
+                  height: 70.h,
+                  width: 115.w,
+                  child: categoryButton(context, viewModel,
+                      viewModel.numberOfCategories[index], index)),
+            );
+          },
         ),
-        controller: viewModel.scrollController,
-        itemCount: viewModel.numberOfCategories.length,
-        itemBuilder: (BuildContext context, int index) {
-          return Padding(
-            padding: EdgeInsets.all(5.0.w),
-            child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: const BorderRadius.only(
-                      topLeft: Radius.circular(10),
-                      topRight: Radius.circular(10),
-                      bottomLeft: Radius.circular(10),
-                      bottomRight: Radius.circular(10)),
-                  boxShadow: [
-                    BoxShadow(
-                      color: ColorItems.shadowColor,
-                      blurRadius: 5,
-                      offset: const Offset(0, 3),
-                    ),
-                  ],
-                ),
-                height: 70.h,
-                width: 115.w,
-                child: categoryButton(context, viewModel,
-                    viewModel.numberOfCategories[index], index)),
-          );
-        },
       ),
     );
   }
@@ -84,7 +97,8 @@ class CategoryView extends StatelessWidget {
   categoryButton(BuildContext context, CategoryViewModel viewModel,
       String category, int index) {
     return ElevatedButton(
-      style: ElevatedButton.styleFrom(backgroundColor: ColorItems.background),
+      style:
+          ElevatedButton.styleFrom(backgroundColor: ColorItems.secondaryColor),
       onPressed: () {
         Navigator.push(
           context,
@@ -94,18 +108,6 @@ class CategoryView extends StatelessWidget {
                     selectedCategory: category,
                   )),
         );
-        /* Navigator.push(
-          context,
-          PageRouteBuilder(
-            pageBuilder: (_, __, ___) => QuotesScreen(
-              items: viewModel.items,
-              selectedCategory: category,
-            ),
-            transitionDuration: const Duration(milliseconds: 500),
-            transitionsBuilder: (_, a, __, c) =>
-                FadeTransition(opacity: a, child: c),
-          ),
-        ); */
 
         viewModel.selectedCategory = category;
       },
