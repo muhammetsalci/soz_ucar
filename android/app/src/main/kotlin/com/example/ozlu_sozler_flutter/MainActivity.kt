@@ -1,4 +1,4 @@
-package com.example.ozlu_sozler_flutter
+package com.soz.ucar
 
 import io.flutter.embedding.android.FlutterActivity
 

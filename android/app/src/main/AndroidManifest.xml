@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.ozlu_sozler_flutter">
+    package="com.soz.ucar">
    <application
-        android:label="ozlu_sozler_flutter"
+        android:label="Söz Uçar"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
