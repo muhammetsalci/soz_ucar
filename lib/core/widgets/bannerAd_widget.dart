@@ -4,7 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
-import '../services/google_ads.dart';
+import '../../services/google_ads.dart';
 
 class BannerAdWidget extends StatefulWidget {
   final GoogleAds googleAds;

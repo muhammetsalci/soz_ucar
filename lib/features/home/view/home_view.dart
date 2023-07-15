@@ -7,9 +7,9 @@ import 'package:ozlu_sozler_flutter/features/home/view-model/home_view_model.dar
 import 'package:ozlu_sozler_flutter/features/home/widgets/home_screen_item.dart';
 import 'package:ozlu_sozler_flutter/features/random_quote/view/random_quote_view.dart';
 import 'package:ozlu_sozler_flutter/utils/colors.dart';
-import 'package:ozlu_sozler_flutter/widgets/app_name.widget.dart';
-import 'package:ozlu_sozler_flutter/widgets/bannerAd_widget.dart';
-import 'package:ozlu_sozler_flutter/widgets/custom_appbar.dart';
+import 'package:ozlu_sozler_flutter/core/widgets/app_name.widget.dart';
+import 'package:ozlu_sozler_flutter/core/widgets/bannerAd_widget.dart';
+import 'package:ozlu_sozler_flutter/core/widgets/custom_appbar.dart';
 import 'package:ozlu_sozler_flutter/features/home/widgets/drawer_widget.dart';
 
 class HomeView extends StatelessWidget {

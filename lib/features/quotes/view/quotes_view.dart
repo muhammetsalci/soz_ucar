@@ -6,9 +6,9 @@ import 'package:ozlu_sozler_flutter/core/base/view/base_widget.dart';
 import 'package:ozlu_sozler_flutter/features/category/model/category_model.dart';
 import 'package:ozlu_sozler_flutter/features/quotes/view-model/quotes_view_model.dart';
 import 'package:ozlu_sozler_flutter/utils/colors.dart';
-import 'package:ozlu_sozler_flutter/widgets/bannerAd_widget.dart';
-import 'package:ozlu_sozler_flutter/widgets/custom_appbar.dart';
-import 'package:ozlu_sozler_flutter/widgets/main_list_view_widget.dart';
+import 'package:ozlu_sozler_flutter/core/widgets/bannerAd_widget.dart';
+import 'package:ozlu_sozler_flutter/core/widgets/custom_appbar.dart';
+import 'package:ozlu_sozler_flutter/core/widgets/main_list_view_widget.dart';
 
 class QuotesView extends StatelessWidget {
   final List<CategoryModel>? items;

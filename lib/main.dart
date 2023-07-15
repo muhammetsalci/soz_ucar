@@ -9,12 +9,12 @@ import 'package:provider/provider.dart';
 import 'provider.dart';
 
 Future<void> main() async {
-  var devices = ["6D9C97CA23F72C2B9BD9E8C14EE91158"];
+  //var devices = ["6D9C97CA23F72C2B9BD9E8C14EE91158"];
   WidgetsFlutterBinding.ensureInitialized();
   await MobileAds.instance.initialize();
-  RequestConfiguration requestConfiguration =
+  /* RequestConfiguration requestConfiguration =
       RequestConfiguration(testDeviceIds: devices);
-  MobileAds.instance.updateRequestConfiguration(requestConfiguration);
+  MobileAds.instance.updateRequestConfiguration(requestConfiguration); */
   await Firebase.initializeApp(
     name: "ozlusozler-13ec6",
     options: DefaultFirebaseOptions.currentPlatform,
@@ -46,7 +46,7 @@ class _MyAppState extends State<MyApp> {
     return ChangeNotifierProvider(
       create: (_) => MyProvider(),
       child: ScreenUtilInit(
-          designSize: const Size(411, 800),
+          designSize: const Size(393, 852),
           minTextAdapt: true,
           splitScreenMode: true,
           builder: (context, child) {

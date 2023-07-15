@@ -26,6 +26,7 @@ abstract class _CategoryViewModelBase extends BaseViewModel with Store {
   void setContext(BuildContext context) {
     viewContext = context;
   }
+  
 
   @observable
   List<CategoryModel>? items;

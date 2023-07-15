@@ -5,8 +5,8 @@ import 'package:ozlu_sozler_flutter/core/base/view/base_widget.dart';
 import 'package:ozlu_sozler_flutter/features/category/view-model/category_view_model.dart';
 import 'package:ozlu_sozler_flutter/features/quotes/view/quotes_view.dart';
 import 'package:ozlu_sozler_flutter/utils/colors.dart';
-import 'package:ozlu_sozler_flutter/widgets/bannerAd_widget.dart';
-import 'package:ozlu_sozler_flutter/widgets/custom_appbar.dart';
+import 'package:ozlu_sozler_flutter/core/widgets/bannerAd_widget.dart';
+import 'package:ozlu_sozler_flutter/core/widgets/custom_appbar.dart';
 
 class CategoryView extends StatelessWidget {
   const CategoryView({super.key});
