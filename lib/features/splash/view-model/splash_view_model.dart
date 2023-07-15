@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
-import 'package:ozlu_sozler_flutter/features/home/view/home_view.dart';
+import 'package:soz_ucar/features/home/view/home_view.dart';
 import '../../../core/base/model/base_view_model.dart';
 part 'splash_view_model.g.dart';
 

@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.soz.ucar">
+    package="com.boti.sozucar">
    <application
         android:label="Söz Uçar"
         android:name="${applicationName}"

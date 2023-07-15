@@ -1,7 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:ozlu_sozler_flutter/utils/colors.dart';
+import 'package:soz_ucar/utils/colors.dart';
 
 // ignore: must_be_immutable
 class AppNameWidget extends StatelessWidget {

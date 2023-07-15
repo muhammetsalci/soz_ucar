@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:ozlu_sozler_flutter/core/widgets/app_name.widget.dart';
+import 'package:soz_ucar/core/widgets/app_name.widget.dart';
 import '../../../utils/colors.dart';
 import 'feed_back_widget.dart';
 
@@ -20,7 +20,10 @@ class DrawerWidget extends StatelessWidget {
               decoration: BoxDecoration(
                 color: ColorItems.primaryColor,
               ),
-              child: Center(child: AppNameWidget(customColor: ColorItems.background,))),
+              child: Center(
+                  child: AppNameWidget(
+                customColor: ColorItems.background,
+              ))),
           Card(
             child: ListTile(
               iconColor: ColorItems.primaryColor,

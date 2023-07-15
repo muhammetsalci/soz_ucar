@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:ozlu_sozler_flutter/core/base/view/base_widget.dart';
-import 'package:ozlu_sozler_flutter/features/category/view-model/category_view_model.dart';
-import 'package:ozlu_sozler_flutter/features/quotes/view/quotes_view.dart';
-import 'package:ozlu_sozler_flutter/utils/colors.dart';
-import 'package:ozlu_sozler_flutter/core/widgets/bannerAd_widget.dart';
-import 'package:ozlu_sozler_flutter/core/widgets/custom_appbar.dart';
+import 'package:soz_ucar/core/base/view/base_widget.dart';
+import 'package:soz_ucar/features/category/view-model/category_view_model.dart';
+import 'package:soz_ucar/features/quotes/view/quotes_view.dart';
+import 'package:soz_ucar/utils/colors.dart';
+import 'package:soz_ucar/core/widgets/bannerAd_widget.dart';
+import 'package:soz_ucar/core/widgets/custom_appbar.dart';
 
 class CategoryView extends StatelessWidget {
   const CategoryView({super.key});

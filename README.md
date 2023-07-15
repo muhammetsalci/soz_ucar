@@ -1,4 +1,4 @@
-# ozlu_sozler_flutter
+# soz_ucar
 
 A new Flutter project.
 

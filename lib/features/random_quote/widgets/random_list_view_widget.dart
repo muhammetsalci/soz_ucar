@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:ozlu_sozler_flutter/features/random_quote/model/random_quote_model.dart';
+import 'package:soz_ucar/features/random_quote/model/random_quote_model.dart';
 
-import 'package:ozlu_sozler_flutter/utils/colors.dart';
+import 'package:soz_ucar/utils/colors.dart';
 
 class RandomListView extends StatelessWidget {
   final List<RandomQuoteReSponseModel>? items;

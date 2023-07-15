@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:ozlu_sozler_flutter/core/base/view/base_widget.dart';
-import 'package:ozlu_sozler_flutter/features/splash/view-model/splash_view_model.dart';
-import 'package:ozlu_sozler_flutter/utils/colors.dart';
+import 'package:soz_ucar/core/base/view/base_widget.dart';
+import 'package:soz_ucar/features/splash/view-model/splash_view_model.dart';
+import 'package:soz_ucar/utils/colors.dart';
 
 class SplashView extends StatelessWidget {
   const SplashView({super.key});
@@ -44,7 +44,7 @@ class SplashView extends StatelessWidget {
               'assets/logo.svg',
               // ignore: deprecated_member_use
               color: ColorItems.background,
-             height: 100.h,
+              height: 100.h,
               width: 100.h,
             ),
           ],

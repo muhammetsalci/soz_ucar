@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:lottie/lottie.dart';
-import 'package:ozlu_sozler_flutter/utils/colors.dart';
+import 'package:soz_ucar/utils/colors.dart';
 
 import 'feed_back_widget.dart';
 
@@ -53,18 +53,23 @@ class HomeScreenItem extends StatelessWidget {
           color: ColorItems.primaryColor,
           onPressed: () {
             if (page == null && text != 'Geri Bildirim') {
-              ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(backgroundColor: ColorItems.primaryColor,
-                    content: const Row(
-                      children: [
-                        FaIcon(
+              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                  backgroundColor: ColorItems.primaryColor,
+                  content: const Row(
+                    children: [
+                      FaIcon(
                         FontAwesomeIcons.clock,
                         color: Colors.white,
                       ),
-                      SizedBox(width: 5,),
-                        Text("Yakında",style: TextStyle(fontWeight: FontWeight.bold),),
-                      ],
-                    )));
+                      SizedBox(
+                        width: 5,
+                      ),
+                      Text(
+                        "Yakında",
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                    ],
+                  )));
             } else if (text == 'Geri Bildirim') {
               bottomSheet(context);
             } else {

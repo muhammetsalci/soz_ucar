@@ -1,8 +1,7 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
-import 'package:ozlu_sozler_flutter/features/random_quote/model/random_quote_model.dart';
-
+import 'package:soz_ucar/features/random_quote/model/random_quote_model.dart';
 
 class RandomQuoteService {
   late final Dio _networkManager;
@@ -17,7 +16,9 @@ class RandomQuoteService {
       if (response.statusCode == HttpStatus.ok) {
         final datas = response.data;
         if (datas is List) {
-          return datas.map((e) => RandomQuoteReSponseModel.fromJson(e)).toList();
+          return datas
+              .map((e) => RandomQuoteReSponseModel.fromJson(e))
+              .toList();
         }
       }
     } catch (error) {

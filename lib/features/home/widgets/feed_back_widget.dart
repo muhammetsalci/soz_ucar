@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:ozlu_sozler_flutter/utils/colors.dart';
+import 'package:soz_ucar/utils/colors.dart';
 
 class FeedbackForm extends StatefulWidget {
   const FeedbackForm({super.key});
@@ -28,8 +28,7 @@ class _FeedbackFormState extends State<FeedbackForm> {
             controller: _nameController,
             decoration: InputDecoration(
               labelText: 'İsim',
-              floatingLabelStyle:
-                  TextStyle(color: ColorItems.primaryColor),
+              floatingLabelStyle: TextStyle(color: ColorItems.primaryColor),
               focusedBorder: UnderlineInputBorder(
                 borderSide: BorderSide(color: ColorItems.primaryColor),
               ),
@@ -45,8 +44,7 @@ class _FeedbackFormState extends State<FeedbackForm> {
             controller: _emailController,
             decoration: InputDecoration(
               labelText: 'E-posta',
-              floatingLabelStyle:
-                  TextStyle(color: ColorItems.primaryColor),
+              floatingLabelStyle: TextStyle(color: ColorItems.primaryColor),
               focusedBorder: UnderlineInputBorder(
                 borderSide: BorderSide(color: ColorItems.primaryColor),
               ),
@@ -62,8 +60,7 @@ class _FeedbackFormState extends State<FeedbackForm> {
             controller: _messageController,
             decoration: InputDecoration(
               labelText: 'Mesaj',
-              floatingLabelStyle:
-                  TextStyle(color: ColorItems.primaryColor),
+              floatingLabelStyle: TextStyle(color: ColorItems.primaryColor),
               focusedBorder: UnderlineInputBorder(
                 borderSide: BorderSide(color: ColorItems.primaryColor),
               ),

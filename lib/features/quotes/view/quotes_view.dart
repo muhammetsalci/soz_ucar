@@ -2,13 +2,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:ozlu_sozler_flutter/core/base/view/base_widget.dart';
-import 'package:ozlu_sozler_flutter/features/category/model/category_model.dart';
-import 'package:ozlu_sozler_flutter/features/quotes/view-model/quotes_view_model.dart';
-import 'package:ozlu_sozler_flutter/utils/colors.dart';
-import 'package:ozlu_sozler_flutter/core/widgets/bannerAd_widget.dart';
-import 'package:ozlu_sozler_flutter/core/widgets/custom_appbar.dart';
-import 'package:ozlu_sozler_flutter/core/widgets/main_list_view_widget.dart';
+import 'package:soz_ucar/core/base/view/base_widget.dart';
+import 'package:soz_ucar/features/category/model/category_model.dart';
+import 'package:soz_ucar/features/quotes/view-model/quotes_view_model.dart';
+import 'package:soz_ucar/utils/colors.dart';
+import 'package:soz_ucar/core/widgets/bannerAd_widget.dart';
+import 'package:soz_ucar/core/widgets/custom_appbar.dart';
+import 'package:soz_ucar/core/widgets/main_list_view_widget.dart';
 
 class QuotesView extends StatelessWidget {
   final List<CategoryModel>? items;
@@ -31,7 +31,8 @@ class QuotesView extends StatelessWidget {
           buildScaffoldBody(context, value),
     );
   }
-    buildScaffoldBody(BuildContext context, QuotesViewModel viewModel) {
+
+  buildScaffoldBody(BuildContext context, QuotesViewModel viewModel) {
     return Scaffold(
       key: viewModel.scaffoldKey,
       backgroundColor: ColorItems.background,
@@ -81,8 +82,7 @@ class QuotesView extends StatelessWidget {
             ),
             Expanded(
                 child: MainListView(
-                    items: items,
-                    selectedCategory: selectedCategory)),
+                    items: items, selectedCategory: selectedCategory)),
           ],
         ),
       ),

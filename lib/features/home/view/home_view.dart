@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
-import 'package:ozlu_sozler_flutter/core/base/view/base_widget.dart';
-import 'package:ozlu_sozler_flutter/features/category/view/category_view.dart';
-import 'package:ozlu_sozler_flutter/features/home/view-model/home_view_model.dart';
-import 'package:ozlu_sozler_flutter/features/home/widgets/home_screen_item.dart';
-import 'package:ozlu_sozler_flutter/features/random_quote/view/random_quote_view.dart';
-import 'package:ozlu_sozler_flutter/utils/colors.dart';
-import 'package:ozlu_sozler_flutter/core/widgets/app_name.widget.dart';
-import 'package:ozlu_sozler_flutter/core/widgets/bannerAd_widget.dart';
-import 'package:ozlu_sozler_flutter/core/widgets/custom_appbar.dart';
-import 'package:ozlu_sozler_flutter/features/home/widgets/drawer_widget.dart';
+import 'package:soz_ucar/core/base/view/base_widget.dart';
+import 'package:soz_ucar/features/category/view/category_view.dart';
+import 'package:soz_ucar/features/home/view-model/home_view_model.dart';
+import 'package:soz_ucar/features/home/widgets/home_screen_item.dart';
+import 'package:soz_ucar/features/random_quote/view/random_quote_view.dart';
+import 'package:soz_ucar/utils/colors.dart';
+import 'package:soz_ucar/core/widgets/app_name.widget.dart';
+import 'package:soz_ucar/core/widgets/bannerAd_widget.dart';
+import 'package:soz_ucar/core/widgets/custom_appbar.dart';
+import 'package:soz_ucar/features/home/widgets/drawer_widget.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});

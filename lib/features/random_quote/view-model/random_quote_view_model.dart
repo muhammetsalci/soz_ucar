@@ -3,10 +3,10 @@ import 'dart:math';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
-import 'package:ozlu_sozler_flutter/features/random_quote/model/random_quote_model.dart';
-import 'package:ozlu_sozler_flutter/features/random_quote/service/random_quote_service.dart';
-import 'package:ozlu_sozler_flutter/services/google_ads.dart';
-import 'package:ozlu_sozler_flutter/core/base/model/base_view_model.dart';
+import 'package:soz_ucar/features/random_quote/model/random_quote_model.dart';
+import 'package:soz_ucar/features/random_quote/service/random_quote_service.dart';
+import 'package:soz_ucar/services/google_ads.dart';
+import 'package:soz_ucar/core/base/model/base_view_model.dart';
 part 'random_quote_view_model.g.dart';
 
 // ignore: library_private_types_in_public_api

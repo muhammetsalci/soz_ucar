@@ -1,8 +1,7 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
-import 'package:ozlu_sozler_flutter/features/category/model/category_model.dart';
-
+import 'package:soz_ucar/features/category/model/category_model.dart';
 
 class CategoryService {
   late final Dio _networkManager;

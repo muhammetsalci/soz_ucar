@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
-import 'package:ozlu_sozler_flutter/features/category/model/category_model.dart';
-import 'package:ozlu_sozler_flutter/features/category/service/category_service.dart';
-import 'package:ozlu_sozler_flutter/core/base/model/base_view_model.dart';
-import 'package:ozlu_sozler_flutter/services/google_ads.dart';
+import 'package:soz_ucar/features/category/model/category_model.dart';
+import 'package:soz_ucar/features/category/service/category_service.dart';
+import 'package:soz_ucar/core/base/model/base_view_model.dart';
+import 'package:soz_ucar/services/google_ads.dart';
 part 'category_view_model.g.dart';
 
 // ignore: library_private_types_in_public_api
@@ -26,7 +26,6 @@ abstract class _CategoryViewModelBase extends BaseViewModel with Store {
   void setContext(BuildContext context) {
     viewContext = context;
   }
-  
 
   @observable
   List<CategoryModel>? items;

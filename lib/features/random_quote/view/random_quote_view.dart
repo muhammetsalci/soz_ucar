@@ -3,13 +3,13 @@ import 'dart:math';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:ozlu_sozler_flutter/core/base/view/base_widget.dart';
-import 'package:ozlu_sozler_flutter/features/random_quote/view-model/random_quote_view_model.dart';
-import 'package:ozlu_sozler_flutter/provider.dart';
-import 'package:ozlu_sozler_flutter/utils/colors.dart';
-import 'package:ozlu_sozler_flutter/core/widgets/bannerAd_widget.dart';
-import 'package:ozlu_sozler_flutter/features/random_quote/widgets/random_list_view_widget.dart';
-import 'package:ozlu_sozler_flutter/core/widgets/custom_appbar.dart';
+import 'package:soz_ucar/core/base/view/base_widget.dart';
+import 'package:soz_ucar/features/random_quote/view-model/random_quote_view_model.dart';
+import 'package:soz_ucar/provider.dart';
+import 'package:soz_ucar/utils/colors.dart';
+import 'package:soz_ucar/core/widgets/bannerAd_widget.dart';
+import 'package:soz_ucar/features/random_quote/widgets/random_list_view_widget.dart';
+import 'package:soz_ucar/core/widgets/custom_appbar.dart';
 import 'package:provider/provider.dart';
 
 class RandomQuoteView extends StatelessWidget {

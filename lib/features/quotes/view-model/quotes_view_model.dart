@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
-import 'package:ozlu_sozler_flutter/core/base/model/base_view_model.dart';
-import 'package:ozlu_sozler_flutter/services/google_ads.dart';
+import 'package:soz_ucar/core/base/model/base_view_model.dart';
+import 'package:soz_ucar/services/google_ads.dart';
 part 'quotes_view_model.g.dart';
 
 // ignore: library_private_types_in_public_api
@@ -11,7 +11,7 @@ abstract class _QuotesViewModelBase extends BaseViewModel with Store {
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
   final GoogleAds googleAds = GoogleAds();
 
-    @override
+  @override
   void init() {
     googleAds.loadIntersititalAd();
     googleAds.loadBannerAd();
@@ -21,5 +21,4 @@ abstract class _QuotesViewModelBase extends BaseViewModel with Store {
   void setContext(BuildContext context) {
     viewContext = context;
   }
-  
 }

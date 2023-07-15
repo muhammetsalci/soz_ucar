@@ -2,8 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:ozlu_sozler_flutter/utils/colors.dart';
-import 'package:ozlu_sozler_flutter/core/widgets/app_name.widget.dart';
+import 'package:soz_ucar/utils/colors.dart';
+import 'package:soz_ucar/core/widgets/app_name.widget.dart';
 
 class CustomAppbar extends StatelessWidget {
   final Icon customIcon;

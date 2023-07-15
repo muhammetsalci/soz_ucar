@@ -2,8 +2,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
-import 'package:ozlu_sozler_flutter/features/splash/view/splash_view.dart';
-import 'package:ozlu_sozler_flutter/firebase_options.dart';
+import 'package:soz_ucar/features/splash/view/splash_view.dart';
+import 'package:soz_ucar/firebase_options.dart';
 import 'package:provider/provider.dart';
 
 import 'provider.dart';

@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:ozlu_sozler_flutter/features/category/model/category_model.dart';
+import 'package:soz_ucar/features/category/model/category_model.dart';
 
-import 'package:ozlu_sozler_flutter/utils/colors.dart';
+import 'package:soz_ucar/utils/colors.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class MainListView extends StatelessWidget {
