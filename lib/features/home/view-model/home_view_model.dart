@@ -9,7 +9,7 @@ part 'home_view_model.g.dart';
 // ignore: library_private_types_in_public_api
 class HomeViewModel = _HomeViewModelBase with _$HomeViewModel;
 
-abstract class _HomeViewModelBase extends BaseViewModel  with Store {
+abstract class _HomeViewModelBase extends BaseViewModel with Store {
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
   final GoogleAds googleAds = GoogleAds();
 
