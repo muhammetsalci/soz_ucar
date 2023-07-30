@@ -1,10 +1,9 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:soz_ucar/core/widgets/app_name.widget.dart';
+import '../../../core/functions/feedback_function.dart';
 import '../../../utils/colors.dart';
-import 'feed_back_widget.dart';
 
 class DrawerWidget extends StatelessWidget {
   final GlobalKey<ScaffoldState> scaffoldKey;
@@ -30,7 +29,8 @@ class DrawerWidget extends StatelessWidget {
               leading: const Icon(Icons.feedback_outlined),
               title: const Text('Geri Bildirim'),
               onTap: () {
-                bottomSheet(context);
+                //bottomSheet(context);
+                feedbackDialog(context);
                 scaffoldKey.currentState!.openEndDrawer();
               },
             ),
@@ -50,7 +50,7 @@ class DrawerWidget extends StatelessWidget {
     );
   }
 
-  Future<dynamic> bottomSheet(BuildContext context) {
+/*   Future<dynamic> bottomSheet(BuildContext context) {
     return showModalBottomSheet(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10.0),
@@ -67,7 +67,9 @@ class DrawerWidget extends StatelessWidget {
         );
       },
     );
-  }
+  } */
+
+
 
   void _exitShowDialog(BuildContext context) {
     showDialog(

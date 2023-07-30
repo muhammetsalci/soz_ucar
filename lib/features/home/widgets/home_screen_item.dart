@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:lottie/lottie.dart';
+import 'package:soz_ucar/core/functions/feedback_function.dart';
 import 'package:soz_ucar/utils/colors.dart';
-
-import 'feed_back_widget.dart';
 
 class HomeScreenItem extends StatelessWidget {
   const HomeScreenItem(
@@ -71,7 +70,8 @@ class HomeScreenItem extends StatelessWidget {
                     ],
                   )));
             } else if (text == 'Geri Bildirim') {
-              bottomSheet(context);
+              //bottomSheet(context);
+              feedbackDialog(context);
             } else {
               Navigator.push(
                 context,
@@ -112,7 +112,7 @@ class HomeScreenItem extends StatelessWidget {
     );
   }
 
-  Future<dynamic> bottomSheet(BuildContext context) {
+  /*  Future<dynamic> bottomSheet(BuildContext context) {
     return showModalBottomSheet(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10.0),
@@ -129,5 +129,5 @@ class HomeScreenItem extends StatelessWidget {
         );
       },
     );
-  }
+  } */
 }
