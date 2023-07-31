@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:soz_ucar/core/widgets/app_name.widget.dart';
 import '../../../core/functions/feedback_function.dart';
 import '../../../utils/colors.dart';
@@ -76,10 +77,13 @@ class DrawerWidget extends StatelessWidget {
         context: context,
         builder: (context) {
           return AlertDialog(
-            title: const ListTile(
-              leading: CircleAvatar(
-                backgroundImage: AssetImage("assets/logo.png"),
-                backgroundColor: Colors.transparent,
+            title: ListTile(
+              title: SvgPicture.asset(
+                'assets/logo.svg',
+                // ignore: deprecated_member_use
+                color: ColorItems.primaryColor,
+                width: MediaQuery.of(context).size.width / 8.52,
+                height: MediaQuery.of(context).size.height / 16.2,
               ),
               //title: Text(StringItems.appName),
             ),
