@@ -7,15 +7,14 @@ import 'package:soz_ucar/utils/colors.dart';
 
 class HomeScreenItem extends StatelessWidget {
   const HomeScreenItem(
-      {Key? key,
+      {super.key,
       required this.position,
       this.page,
       required this.text,
       this.lottieAsset,
       this.lottieURL,
       this.textColor,
-      this.color})
-      : super(key: key);
+      this.color});
   final String? lottieURL;
   final String position;
   final String? lottieAsset;
@@ -44,7 +43,7 @@ class HomeScreenItem extends StatelessWidget {
     }
     return Container(
       height: 80.h,
-      width: MediaQuery.of(context).size.width / 2 - 15,
+      width: MediaQuery.of(context).size.width / 2 - 10,
       decoration: BoxDecoration(border: Border.all(color: Colors.white)),
       child: MaterialButton(
           //padding: const EdgeInsets.all(20),
@@ -54,16 +53,16 @@ class HomeScreenItem extends StatelessWidget {
             if (page == null && text != 'Geri Bildirim') {
               ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                   backgroundColor: ColorItems.primaryColor,
-                  content: const Row(
+                  content: Row(
                     children: [
-                      FaIcon(
+                      const FaIcon(
                         FontAwesomeIcons.clock,
                         color: Colors.white,
                       ),
                       SizedBox(
-                        width: 5,
+                        width: 5.w,
                       ),
-                      Text(
+                      const Text(
                         "Yakında",
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ),
@@ -102,7 +101,7 @@ class HomeScreenItem extends StatelessWidget {
                   text,
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                      fontSize: 16.sp,
+                      fontSize: 15.sp,
                       color: textColor ?? ColorItems.background,
                       fontWeight: FontWeight.bold),
                 ),

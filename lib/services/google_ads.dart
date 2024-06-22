@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/foundation.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
@@ -7,13 +5,9 @@ class GoogleAds {
   InterstitialAd? interstitialAd;
   BannerAd? bannerAd;
 
-  final adUnitIdIntersitital = Platform.isAndroid
-      ? 'ca-app-pub-4045640849423737/6606919457'
-      : 'ca-app-pub-4045640849423737/1934614724';
+  final adUnitIdIntersitital = 'api_key';
 
-  final adUnitIdBanner = Platform.isAndroid
-      ? 'ca-app-pub-4045640849423737/9616226171'
-      : 'ca-app-pub-4045640849423737/4036936402';
+  final adUnitIdBanner = 'api_key';
 
   void loadIntersititalAd({bool showAfterLoad = false}) {
     InterstitialAd.load(

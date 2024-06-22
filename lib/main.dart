@@ -9,7 +9,6 @@ import 'package:provider/provider.dart';
 import 'provider.dart';
 
 Future<void> main() async {
-  //var devices = ["6D9C97CA23F72C2B9BD9E8C14EE91158"];
   WidgetsFlutterBinding.ensureInitialized();
   await MobileAds.instance.initialize();
   /* RequestConfiguration requestConfiguration =
@@ -53,7 +52,7 @@ class _MyAppState extends State<MyApp> {
             return const MaterialApp(
               debugShowCheckedModeBanner: false,
               //theme: ThemeData.dark(),
-              title: 'Material App',
+              title: 'Söz Uçar',
               home: SplashView(),
             );
           }),
